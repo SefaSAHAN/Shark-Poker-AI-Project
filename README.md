@@ -19,8 +19,13 @@ The utils folder contains two modules: win_rate.py and winnercheck.py. The win_r
 
 ## Usage
 
-To run the Shark Poker Bot, you can use the main.py file. This file uses the ui modules in the utils folder to display the game interface and prompt the user for input.
+To run the Shark Poker Bot, you can use the main.py file.
+
+This file uses the ui modules in the utils folder to display the game interface and prompt the user for input.
+
 Before running the program, make sure to install the required libraries by running pip install -r requirements.txt.
+
+"Note: Due to the three different machine learning models used in this program, it may take between 5 to 10 minutes for the program to open."
 
 
 ## Analysis
