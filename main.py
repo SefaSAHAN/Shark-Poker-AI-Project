@@ -7,7 +7,6 @@ from sklearn.ensemble import RandomForestClassifier
 import warnings
 from utils.win_rate import WinRate
 from utils.winnercheck import Winner
-# from utils.bot_logic import Bot
 from utils.ui_screen import Ui_MainWindow
 import pandas as pd
 import sys
@@ -103,7 +102,7 @@ class Game(QMainWindow):
 	
 	def predict_check(self):
 		data=[[self.bot_win_rate]]
-		# data = pd.DataFrame([[self.bot_win_rate]], columns=feature_names)
+		
 		prediction=self.model_check.predict(data)
 		if prediction==0:
 			self.bot_decision='check'
@@ -389,7 +388,7 @@ class Game(QMainWindow):
 			if "player1" in winner_list and "player2" in winner_list:
 				winner='Shark Poker & Player'
 				self.budget['player']+=int(self.pot/2)
-				self.budget['bot']+=self.pot
+				self.budget['bot']+=self.pot/2
 
 			# If only the bot has the highest ranking hand, add the pot to the bot's budget and set the winner as "Shark Poker"	
 			elif "player1" in winner_list :
@@ -516,7 +515,7 @@ class Game(QMainWindow):
 			self.bot_win_rate=self.win_rate.river_win_rate("bot")
 			
 		self.bot_win_rate=float(self.bot_win_rate)
-		print(self.bot_win_rate)	
+		# print(self.bot_win_rate)	
 	
 	def show_player_hand(self):
 		self.ui.p_card1.setPixmap(QtGui.QPixmap(f":/images/{self.card_dict['player'][0]}.png"))
