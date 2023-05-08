@@ -25,7 +25,7 @@ This file uses the ui modules in the utils folder to display the game interface 
 
 Before running the program, make sure to install the required libraries by running pip install -r requirements.txt.
 
-"Note: Due to the three different machine learning models used in this program, it may take between 5 to 10 minutes for the program to open."
+"Note: Due to the three different machine learning models used in this program, it may take between 1 to 2 minutes for the program to open."
 
 
 ## Analysis
