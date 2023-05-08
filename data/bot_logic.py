@@ -45,9 +45,17 @@ class Bot:
 
         else:
             self.pot-=self.player_raise_amount
-            if self.bot_win_rate < 0.45:
-                if self.player_raise_amount < 400:
-                    if random.random() < 0.25:
+            if self.bot_win_rate < 0.40:
+                if self.player_raise_amount < 201:
+                    if random.random() < 0.85:
+                        self.bot_decision = "call"
+                        self.bot_raise_amount=self.player_raise_amount
+                    else:
+                        self.bot_raise_amount = 0
+                        self.bot_decision = "fold"
+
+                elif self.player_raise_amount < 400:
+                    if random.random() < 0.45:
                         self.bot_decision = "call"
                         self.bot_raise_amount=self.player_raise_amount
                     else:
@@ -57,9 +65,9 @@ class Bot:
                     self.bot_raise_amount = 0
                     self.bot_decision = "fold"
 
-            elif self.bot_win_rate >= 0.45 and self.bot_win_rate < 0.55:
+            elif self.bot_win_rate >= 0.40 and self.bot_win_rate < 0.55:
                 if self.player_raise_amount <= self.pot/2:
-                    if random.random() < 0.75:
+                    if random.random() < 0.85:
                         if random.random()<0.95:
                             self.bot_decision = "call"
                             self.bot_raise_amount=self.player_raise_amount
@@ -74,7 +82,7 @@ class Bot:
                         self.bot_decision = "fold"
 
                 elif self.player_raise_amount <= self.pot:
-                    if random.random() < 0.5:
+                    if random.random() < 0.6:
                         if random.random()<0.95:
                             self.bot_decision = "call"
                             self.bot_raise_amount=self.player_raise_amount
@@ -89,7 +97,7 @@ class Bot:
                         self.bot_decision = "fold"
 
                 elif self.player_raise_amount < self.pot*2:
-                    if random.random() < 0.35:
+                    if random.random() < 0.4:
                         if random.random()<0.95:
                             self.bot_decision = "call"
                             self.bot_raise_amount=self.player_raise_amount
@@ -286,6 +294,8 @@ class Bot:
 
 import csv
 
+##Create bot dataset when player choose call or check
+
 # a=0
 # while a<100000:
 #     a+=1
@@ -312,9 +322,8 @@ import csv
 #         writer.writerow(data)
 
 
-# # win_rate,pot,bot_decision
+##Create bot dataset when player choose raise
 
-# # win_rate,pot,player_raise_amount,bot_decision
 # a=0
 # while a<100000:
 #     a+=1
@@ -342,7 +351,7 @@ import csv
 #         writer.writerow(data)
 
 
-
+##Create bot dataset when bot choose raise
 
 # a=0
 # while a<50000:

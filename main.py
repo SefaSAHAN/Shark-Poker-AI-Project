@@ -12,7 +12,6 @@ import pandas as pd
 import sys
 import random
 
-
 warnings.filterwarnings("ignore")
 
 
@@ -85,7 +84,7 @@ class Game(QMainWindow):
 		X = df[['win_rate', 'pot', 'player_raise_amount']]
 		y = df['bot_decision']
 
-		# train the decision tree classifier
+		# train the Random Forest classifier
 		self.model_raise = RandomForestClassifier()
 		self.model_raise.fit(X, y)
 
@@ -96,8 +95,8 @@ class Game(QMainWindow):
 		X = df['win_rate'].values.reshape(-1, 1)
 		y = df['bot_decision']
 
-		# train the decision tree classifier
-		self.model_raise_amount = DecisionTreeClassifier()
+		# train the Random Forest classifier
+		self.model_raise_amount = RandomForestClassifier()
 		self.model_raise_amount.fit(X, y)
 	
 	def predict_check(self):
