@@ -30,7 +30,7 @@ Before running the program, make sure to install the required libraries by runni
 
 ## Analysis
 
-To analyze the project and results win_rate dataset, I created various notebook in the data folder. These notebooks show the results of the dataset.
+To analyze the project and results win_rate dataset, I created various notebooks in the data folder. These notebooks show the results of the dataset.
 
 ## Conclusion
 
